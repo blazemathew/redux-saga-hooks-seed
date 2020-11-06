@@ -1,0 +1,9 @@
+@import '../Field/field.module.scss';
+
+.input {
+  @extend .input;
+}
+
+.input:disabled {
+  color: $primary-text-color;
+}

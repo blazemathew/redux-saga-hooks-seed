@@ -1,0 +1,39 @@
+.root {
+  display: block !important;
+  margin-right: auto !important;
+}
+
+.input_group {
+  background-color: #ecf0f6;
+  width: auto;
+  border-radius: 0.35rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-size: 0.9rem;
+  display: grid;
+  position: relative;
+  z-index: 2;
+  margin-top: -.8rem;
+  max-width: 16rem;
+  min-width: 16rem;
+
+  span {
+    span {
+      span {
+        svg {
+          fill: #ecf0f6;
+          stroke: #6c6565;
+        }
+      }
+    }
+  }
+}
+
+.input,
+.input:focus {
+  background-color: #ecf0f6;
+  font-size: .9rem;
+  font-weight: 200;
+  height: calc(2em + 0.75rem + 2px);
+  font-family: "Maison Neue Light";
+  font-weight: 600;
+}

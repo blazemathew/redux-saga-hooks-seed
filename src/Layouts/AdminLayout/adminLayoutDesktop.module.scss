@@ -1,0 +1,32 @@
+.layoutSidenav {
+  display: flex;
+}
+.layoutSidenav_nav {
+  width: 16rem;
+  height: 100vh;
+  z-index: 1038;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateX(0);
+  transition: transform 0.15s ease-in-out;
+}
+.layoutSidenav_content {
+  padding-left: 16rem;
+  top: 3.625rem;
+  margin-left: 0;
+  transition: margin 0.15s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  flex-grow: 1;
+  min-height: calc(100vh - 3.625rem);
+  background-color: #eff3f9;
+}
+.container {
+  padding: 2.5rem !important;
+  padding-bottom: 5.4rem !important;
+}

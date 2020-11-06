@@ -1,0 +1,21 @@
+.root {
+  background-color: #eff3f9;
+  color: #000;
+  position: relative;
+  z-index: 1;
+}
+
+.root_masked {
+  @extend .root;
+}
+
+.page {
+  min-height: 100vh;
+  z-index: -1;
+  position: relative;
+  width: 100%;
+}
+
+.page_masked {
+  @extend .page;
+}

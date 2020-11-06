@@ -1,0 +1,45 @@
+.root {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding-left: 0;
+  height: 4rem;
+  z-index: 1039;
+  font-size: 0.9rem;
+  // box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15) !important;
+  border-bottom: 1px solid #eaeff1;
+  background-color: #fff !important;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.navbar_brand {
+  width: 15rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.logo {
+  width: 10rem;
+}
+ul.navbar_nav {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  align-items: center !important;
+  font-size: 0.9rem;
+  li {
+    position: relative;
+    display: inline !important;
+    font-size: 0.9rem;
+  }
+}

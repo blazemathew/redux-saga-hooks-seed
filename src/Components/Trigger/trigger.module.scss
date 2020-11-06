@@ -1,0 +1,5 @@
+@import '../clickable.scss';
+
+.root {
+  @extend .root;
+}
