@@ -38,7 +38,7 @@ const App = (props) => {
   const {
     isMobileNav,
     hasOverlay,
-    handleCloseDrawer,
+    handletoggleDrawer,
     setHTMLUpdateAvailable
   } = talonProps;
 
@@ -72,7 +72,7 @@ const App = (props) => {
       <Main isMasked={hasOverlay}>
         <Routes />
       </Main>
-      <Mask isActive={hasOverlay} dismiss={handleCloseDrawer} />
+      <Mask isActive={hasOverlay} dismiss={handletoggleDrawer} />
       {_mobleNav}
     </>
   );

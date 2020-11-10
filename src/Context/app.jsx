@@ -1,21 +1,17 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import actions from 'Store/actions/app/actions';
-import * as asyncActions from 'Store/actions/app/asyncActions';
-import bindActionCreators from 'Utilities/bindActionCreators';
+import * as appActions from 'Store/app/actions';
 
 const AppContext = createContext();
 
 const AppContextProvider = (props) => {
-  const { actions, appState, asyncActions, children } = props;
+  const { actions, appState, children } = props;
 
   const appApi = useMemo(
-    () => ({
-      actions,
-      ...asyncActions
-    }),
-    [actions, asyncActions]
+    () => actions,
+    [actions]
   );
 
   const contextValue = useMemo(() => [appState, appApi], [appApi, appState]);
@@ -27,10 +23,7 @@ const AppContextProvider = (props) => {
 
 const mapStateToProps = ({ app }) => ({ appState: app });
 
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch),
-  asyncActions: bindActionCreators(asyncActions, dispatch)
-});
+const mapDispatchToProps = (dispatch) => ({actions: bindActionCreators(appActions, dispatch)});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContextProvider);
 

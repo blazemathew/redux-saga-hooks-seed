@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
-import store from './store';
+import store from './Store';
 import Adapter from './adapter';
 import App, { AppContextProvider } from './Layouts/App';
 

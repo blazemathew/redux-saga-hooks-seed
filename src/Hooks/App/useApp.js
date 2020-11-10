@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import errorRecord from '../../Utilities/createErrorRecord';
-import { useAppContext } from '../../Context/app';
-import { DESKTOP } from '../../Constants/deviceTypes';
-import { useWindowSize } from '../../Context/useWindowSize';
-import { getCurrentDevice } from '../../Utilities/deviceInfo';
+import errorRecord from 'Utilities/createErrorRecord';
+import { useAppContext } from 'Context/app';
+import { DESKTOP } from 'Constants/deviceTypes';
+import { useWindowSize } from 'Context/useWindowSize';
+import { getCurrentDevice } from 'Utilities/deviceInfo';
 
 export const useApp = (props) => {
   const {
@@ -63,7 +63,8 @@ export const useApp = (props) => {
   }, [errors, handleDismissError, handleError]);
 
   const [appState, appApi] = useAppContext();
-  const { closeDrawer, changeDevice } = appApi;
+  console.log(appApi);
+  const { toggleDrawer, changeDevice } = appApi;
   const { hasBeenOffline, isOnline, overlay, whichDeviceActive } = appState;
 
   useEffect(() => {
@@ -88,14 +89,14 @@ export const useApp = (props) => {
     }
   }, [isHTMLUpdateAvailable, handleHTMLUpdate, resetHTMLUpdateAvaialable]);
 
-  const handleCloseDrawer = useCallback(() => {
-    closeDrawer();
-  }, [closeDrawer]);
+  const handletoggleDrawer = useCallback(() => {
+    toggleDrawer();
+  }, [toggleDrawer]);
 
   return {
     isMobileNav: whichDeviceActive !== DESKTOP,
     hasOverlay: !!overlay,
-    handleCloseDrawer,
+    handletoggleDrawer,
     setHTMLUpdateAvailable
   };
 };

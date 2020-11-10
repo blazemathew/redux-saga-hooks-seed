@@ -3,15 +3,15 @@ import { useAppContext } from '../../Context/app';
 
 export const useNavigationTrigger = () => {
   // console.log(useAppContext());
-  const [{ drawer }, { toggleDrawer, closeDrawer }] = useAppContext();
+  const [{ drawer }, { toggleDrawer }] = useAppContext();
 
   const handleOpenNavigation = useCallback(() => {
     toggleDrawer('nav');
   }, [toggleDrawer]);
 
   const handleCloseNavigation = useCallback(() => {
-    closeDrawer(null);
-  }, [closeDrawer]);
+    toggleDrawer(null);
+  }, [toggleDrawer]);
 
   return {
     drawer,

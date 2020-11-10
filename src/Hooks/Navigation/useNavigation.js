@@ -3,14 +3,14 @@ import { useAppContext } from '../../Context/app';
 
 export const useNavigation = () => {
   // retrieve app state from context
-  const [appState, { closeDrawer }] = useAppContext();
+  const [appState, { toggleDrawer }] = useAppContext();
 
   const { drawer } = appState;
   const isOpen = drawer === 'nav';
 
   const handleClose = useCallback(() => {
-    closeDrawer();
-  }, [closeDrawer]);
+    toggleDrawer();
+  }, [toggleDrawer]);
 
   return {
     handleClose,

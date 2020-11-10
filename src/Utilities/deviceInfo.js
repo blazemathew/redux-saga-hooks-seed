@@ -25,12 +25,12 @@ export const getCurrentDevice = () => {
 };
 
 export const getOS = () => {
-  let userAgent = window.navigator.userAgent,
+  const userAgent = window.navigator.userAgent,
     platform = window.navigator.platform,
     macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
     windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-    iosPlatforms = ['iPhone', 'iPad', 'iPod'],
-    os = null;
+    iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+  let os = null;
 
   if (macosPlatforms.indexOf(platform) !== -1) {
     os = 'MacOS';

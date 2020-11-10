@@ -12,11 +12,11 @@ import useUser from 'Hooks/Account/useUser';
 const AdminLayout = (props) => {
   const { children } = props;
   const classes = mergeClasses(defaultClasses, props.classes);
-  const { Signout, user } = useUser();
+  const { RequestLogout, user } = useUser();
 
   return (
     <>
-      <Header user={user} Signout={Signout} isAuthenticated={true} />
+      <Header user={user} Signout={RequestLogout} isAuthenticated={true} />
       <div className={classes.layoutSidenav}>
         <div className={classes.layoutSidenav_nav}>
           <SideNav />

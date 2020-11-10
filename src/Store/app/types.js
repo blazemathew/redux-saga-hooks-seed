@@ -1,0 +1,10 @@
+const types = {
+  TOGGLE_DRAWER: '[App] TOGGLE_DRAWER',
+  SET_ONLINE:'[App] SET_ONLINE',
+  SET_OFFLINE: '[App] SET_OFFLINE',
+  TOGGLE_SEARCH: '[App] TOGGLE_SEARCH',
+  MARK_ERROR_HANDLED: '[App] MARK_ERROR_HANDLED',
+  CHANGE_DEVICE: '[App] CHANGE_DEVICE'
+};
+
+export default types;

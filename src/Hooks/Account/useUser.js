@@ -1,15 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import bindActionCreators from 'Utilities/bindActionCreators';
-import * as asyncActions from 'Store/actions/auth/asyncActions';
+import * as authActions from 'Store/auth/actions';
 
 const useUser = () => {
   const { user, token } = useSelector(({ auth }) => auth);
 
   const dispatch = useDispatch();
-  const { Signout } = bindActionCreators(asyncActions, dispatch);
+  const { RequestLogout } = bindActionCreators(authActions, dispatch);
 
-  return { user, Signout, token };
+  return { user, RequestLogout, token };
 };
 
 export default useUser;

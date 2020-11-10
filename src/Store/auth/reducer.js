@@ -1,7 +1,4 @@
-import { handleActions } from 'redux-actions';
-
-import actions from '../actions/auth';
-export const name = 'auth';
+import types from './types';
 
 const token = localStorage.getItem('access_token');
 const user =
@@ -14,21 +11,24 @@ const initialState = {
   error: null
 };
 
-const reducerMap = {
-  [actions.login.request]: loginRequest,
-  [actions.login.success]: loginSuccess,
-  [actions.login.failure]: loginFailure,
+// strategies
+const strategies = {
+  [types.REQUEST_LOGIN]: loginRequest,
+  [types.LOGIN_SUCCESS]: loginSuccess,
+  [types.LOGIN_ERROR]: loginFailure,
 
-  [actions.signup.request]: signupRequest,
-  [actions.signup.success]: signupSuccess,
-  [actions.signup.failure]: signupFailure,
+  [types.REQUEST_LOGOUT]: signoutRequest,
+  [types.LOGOUT_SUCCESS]: signoutSuccess,
+  [types.LOGOUT_ERROR]: signoutFailure,
 
-  [actions.signout.request]: signoutRequest,
-  [actions.signout.success]: signoutSuccess,
-  [actions.signout.failure]: signoutFailure
+  __default__: (state) => state
 };
 
-export default handleActions(reducerMap, initialState);
+// Reducer boiler plate
+export default function reducer(state = initialState, action) {
+  const transformer = strategies[action.type] ? strategies[action.type] : strategies.__default__;
+  return transformer(state, action);
+}
 
 // Login Mutators
 function loginRequest(state, { payload }) {
@@ -38,7 +38,7 @@ function loginRequest(state, { payload }) {
     drawer: payload
   };
 }
-
+  
 function loginSuccess(state, { payload }) {
   return {
     ...state,
@@ -50,31 +50,6 @@ function loginSuccess(state, { payload }) {
 }
 
 function loginFailure(state, { payload }) {
-  return {
-    ...state,
-    isLoading: false,
-    error: payload
-  };
-}
-
-// Signup Mutators
-function signupRequest(state, { payload }) {
-  return {
-    ...state,
-    isLoading: true,
-    drawer: payload
-  };
-}
-
-function signupSuccess(state, { payload }) {
-  return {
-    ...state,
-    isLoading: false,
-    drawer: payload
-  };
-}
-
-function signupFailure(state, { payload }) {
   return {
     ...state,
     isLoading: false,
