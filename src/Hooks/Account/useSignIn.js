@@ -14,6 +14,8 @@ export const useSignIn = () => {
   const { RequestLogin } = bindActionCreators(authActions, dispatch);
   const { isLoading, error } = useSelector(({ auth }) => auth);
 
+  // This doesn't need useCallback according to my understanding from this blog
+  // https://dmitripavlutin.com/dont-overuse-react-usecallback/
   const handleSubmit = ({ email, password }) => {
     RequestLogin({ email, password }, history);
   };
